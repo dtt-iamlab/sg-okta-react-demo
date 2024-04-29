@@ -38,7 +38,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build
-        run: npm run build
+        run: npm run build --base=/sg-okta-react-demo/
         env:
           ISSUER: ${{ vars.ISSUER }}
           CLIENT_ID: ${{ vars.CLIENT_ID }}
