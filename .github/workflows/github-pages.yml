@@ -20,6 +20,13 @@ concurrency:
   group: 'pages'
   cancel-in-progress: true
 
+env:
+  ISSUER: ${{ vars.ISSUER }}
+  CLIENT_ID: ${{ vars.CLIENT_ID }}
+  SPA_CLIENT_ID: ${{ vars.SPA_CLIENT_ID }}
+  VITE_ISSUER: ${{ vars.ISSUER }}
+  VITE_CLIENT_ID: ${{ vars.CLIENT_ID }}
+
 jobs:
   # Single deploy job since we're just deploying
   deploy:
@@ -39,12 +46,6 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-        env:
-          ISSUER: ${{ vars.ISSUER }}
-          CLIENT_ID: ${{ vars.CLIENT_ID }}
-          SPA_CLIENT_ID: ${{ vars.SPA_CLIENT_ID }}
-          VITE_ISSUER: ${{ vars.ISSUER }}
-          VITE_CLIENT_ID: ${{ vars.CLIENT_ID }}
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
