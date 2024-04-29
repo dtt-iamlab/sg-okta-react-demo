@@ -25,6 +25,7 @@ const env = {};
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/sg-okta-react-demo/',
   plugins: [react()],
   define: {
     'process.env': env
