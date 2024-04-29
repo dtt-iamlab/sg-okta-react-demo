@@ -45,9 +45,10 @@ jobs:
           SPA_CLIENT_ID: ${{ vars.SPA_CLIENT_ID }}
           VITE_ISSUER: ${{ vars.ISSUER }}
           VITE_CLIENT_ID: ${{ vars.CLIENT_ID }}
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
           publish_dir: dist
           publish_branch: gh-pages
