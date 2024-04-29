@@ -39,6 +39,10 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+        env:
+          ISSUER: ${{ vars.ISSUER }}
+          CLIENT_ID: ${{ vars.CLIENT_ID }}
+          SPA_CLIENT_ID: ${{ vars.SPA_CLIENT_ID }}
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
