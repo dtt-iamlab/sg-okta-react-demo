@@ -1,5 +1,6 @@
 {
   "name": "okta-react-sample",
+  "homepage": "https://dtt-iamlab.github.io/sg-okta-react-demo",
   "version": "0.0.0",
   "private": true,
   "scripts": {
