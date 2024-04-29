@@ -43,6 +43,8 @@ jobs:
           ISSUER: ${{ vars.ISSUER }}
           CLIENT_ID: ${{ vars.CLIENT_ID }}
           SPA_CLIENT_ID: ${{ vars.SPA_CLIENT_ID }}
+          VITE_ISSUER: ${{ vars.ISSUER }}
+          VITE_CLIENT_ID: ${{ vars.CLIENT_ID }}
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
