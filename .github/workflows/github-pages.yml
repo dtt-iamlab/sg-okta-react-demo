@@ -36,22 +36,18 @@ jobs:
           node-version: 20
           cache: 'npm'
       - name: Install dependencies
-        run: npm ci
+        run: npm install
       - name: Build
-        run: npm run build --base=/sg-okta-react-demo/
+        run: npm run build
         env:
           ISSUER: ${{ vars.ISSUER }}
           CLIENT_ID: ${{ vars.CLIENT_ID }}
           SPA_CLIENT_ID: ${{ vars.SPA_CLIENT_ID }}
           VITE_ISSUER: ${{ vars.ISSUER }}
           VITE_CLIENT_ID: ${{ vars.CLIENT_ID }}
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload dist folder
-          path: './dist'
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
+          publish_branch: gh-pages
